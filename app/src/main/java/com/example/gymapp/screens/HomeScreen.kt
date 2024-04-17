@@ -1,7 +1,6 @@
 package com.example.gymapp.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -28,7 +27,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
@@ -54,9 +52,9 @@ val PoppinsFamily = FontFamily(
 fun HomeScreen() {
     Surface(color = Color(0xFFDAD9D4),
     modifier= Modifier
-        .padding(top = 40.dp)
         .fillMaxSize()) {
         Column (modifier= Modifier
+            .padding(top=20.dp)
             .verticalScroll(rememberScrollState())){
             Image(painter = painterResource(id = R.drawable.logo), contentDescription ="logo",
                 Modifier
