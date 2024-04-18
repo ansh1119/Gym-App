@@ -49,8 +49,6 @@ fun LoginScreen(navController: NavHostController) {
     val InterFamily = FontFamily(
         Font(R.font.inter, FontWeight.Light),
         )
-
-
         Surface {
             Box(modifier=Modifier.fillMaxSize()) {
                 Image(modifier= Modifier

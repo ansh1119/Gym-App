@@ -14,11 +14,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.gymapp.screens.FirstScreen
 import com.example.gymapp.screens.HomeScreen
 import com.example.gymapp.screens.LoginScreen
-import com.example.gymapp.screens.Payment
+import com.example.gymapp.components.Payment
+import com.example.gymapp.screens.Plans
 import kotlinx.coroutines.delay
 
 @Composable
-fun Nav(context: Context, ob: Payment,activity: Activity) {
+fun Nav(context: Context, ob: Payment, activity: Activity) {
 
     val navController=rememberNavController()
     var show by remember { mutableStateOf(true) }
@@ -40,7 +41,10 @@ fun Nav(context: Context, ob: Payment,activity: Activity) {
             LoginScreen(navController)
         }
         composable(route="home"){
-            HomeScreen(navController,context,ob, activity)
+            HomeScreen(navController)
+        }
+        composable(route="plans"){
+            Plans(navController,context,ob, activity)
         }
     }
 }

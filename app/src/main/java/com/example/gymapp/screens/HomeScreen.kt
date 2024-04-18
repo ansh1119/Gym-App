@@ -53,7 +53,7 @@ val PoppinsFamily = FontFamily(
 )
 
 @Composable
-fun HomeScreen(navHostController: NavHostController, context: Context, ob: Payment,activity:Activity) {
+fun HomeScreen(navController: NavHostController, ) {
 
     val context = LocalContext.current
     Surface(color = Color(0xFFDAD9D4),
@@ -231,8 +231,7 @@ fun HomeScreen(navHostController: NavHostController, context: Context, ob: Payme
 
                 Spacer(modifier = Modifier.weight(0.5f))
                 Button(
-                    onClick = {
-                              ob.startPayment(context, activity)},
+                    onClick = {navController.navigate("plans")},
                     shape = CircleShape,
                     modifier= Modifier
                         .size(70.dp)

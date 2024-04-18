@@ -1,4 +1,4 @@
-package com.example.gymapp.screens
+package com.example.gymapp.components
 
 import android.app.Activity
 import android.content.Context
@@ -19,44 +19,6 @@ class Payment {
         co.setKeyID("rzp_test_7FxVinZRlo9EB2")
 
 
-        val payloadHelper = PayloadHelper("INR", 100, "order_XXXXXXXXX")
-        payloadHelper.name = "Gaurav Kumae"
-        payloadHelper.description = "Description"
-        payloadHelper.prefillEmail = "gaurav.kumar@example.com"
-        payloadHelper.prefillContact = "9000090000"
-        payloadHelper.prefillCardNum = "4111111111111111"
-        payloadHelper.prefillCardCvv = "111"
-        payloadHelper.prefillCardExp = "11/24"
-        payloadHelper.prefillMethod = "card"
-        payloadHelper.prefillName = "MerchantName"
-        payloadHelper.sendSmsHash = true
-        payloadHelper.retryMaxCount = 4
-        payloadHelper.retryEnabled = true
-        payloadHelper.color = "#000000"
-        payloadHelper.allowRotation = true
-        payloadHelper.rememberCustomer = true
-        payloadHelper.timeout = 10
-        payloadHelper.redirect = true
-        payloadHelper.recurring = "1"
-        payloadHelper.subscriptionCardChange = true
-        payloadHelper.customerId = "cust_XXXXXXXXXX"
-        payloadHelper.callbackUrl = "https://accepts-posts.request"
-        payloadHelper.subscriptionId = "sub_XXXXXXXXXX"
-        payloadHelper.modalConfirmClose = true
-        payloadHelper.backDropColor = "#ffffff"
-        payloadHelper.hideTopBar = true
-        payloadHelper.notes = JSONObject("{\"remarks\":\"Discount to cusomter\"}")
-        payloadHelper.readOnlyEmail = true
-        payloadHelper.readOnlyContact = true
-        payloadHelper.readOnlyName = true
-        payloadHelper.image = "https://www.razorpay.com"
-        // these values are set mandatorily during object initialization. Those values can be overridden like this
-        payloadHelper.amount = 100
-        payloadHelper.currency = "INR"
-        payloadHelper.orderId = "order_XXXXXXXXXXXXXX"
-
-
-
         try {
             val options = JSONObject()
             options.put("name","Razorpay Corp")
@@ -66,7 +28,7 @@ class Payment {
             options.put("theme.color", "#3399cc");
             options.put("currency","INR");
             options.put("order_id", "order_DBJOWzybf0sJbb");
-            options.put("amount","50000")//pass amount in currency subunits
+            options.put("amount","3000")//pass amount in currency subunits
 
             val retryObj = JSONObject();
             retryObj.put("enabled", true);

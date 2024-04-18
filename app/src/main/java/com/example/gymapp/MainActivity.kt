@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.gymapp.screens.Payment
+import com.example.gymapp.components.Payment
 
 class MainActivity : ComponentActivity() {
     private val ob: Payment = Payment()
