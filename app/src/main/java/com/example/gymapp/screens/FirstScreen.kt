@@ -3,7 +3,7 @@ package com.example.gymapp.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -28,12 +28,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.gymapp.R
 import kotlinx.coroutines.delay
 
-@Preview(showBackground = true)
 @Composable
-fun FirstScreen() {
+fun FirstScreen(navController: NavHostController) {
 
     val PostFamily = FontFamily(
         Font(R.font.postnobillsextrabold),
@@ -41,14 +41,15 @@ fun FirstScreen() {
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Box(modifier = Modifier.fillMaxSize()){
-            Image(modifier=Modifier
+            Image(modifier= Modifier
                 .fillMaxSize()
                 .scale(1.1f),
                 painter = painterResource(id = R.drawable.start),
                 contentDescription = "background")
             Column(modifier=Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                Image(modifier=Modifier.weight(0.1f)
+                Image(modifier= Modifier
+                    .weight(0.1f)
                     .scale(1.1f)
                     .padding(start = 40.dp),
                     painter = painterResource(id =R.drawable.logo),
@@ -60,18 +61,16 @@ fun FirstScreen() {
                     fontFamily = PostFamily,
                     color = Color(0xFFCECECE)
                 )
-                CircularProgressIndicatorWithDelay(modifier = Modifier.width(64.dp)
-                        .fillMaxWidth()
-                    .fillMaxHeight()
-                        .weight(.1f)
-                    .padding(bottom=20.dp))
+                Row(modifier=Modifier.padding(bottom=50.dp)) {
+                    CircularProgressIndicatorWithDelay(modifier = Modifier)
+                }
             }
         }
     }
 }
 
 @Composable
-fun CircularProgressIndicatorWithDelay(modifier:Modifier) {
+fun CircularProgressIndicatorWithDelay(modifier: Modifier) {
     var showProgress by remember { mutableStateOf(true) }
 
     LaunchedEffect(showProgress) {

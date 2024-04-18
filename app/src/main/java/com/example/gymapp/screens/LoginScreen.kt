@@ -17,7 +17,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Surface
@@ -37,16 +36,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.gymapp.R
 
-@Preview(showBackground = true)
+
 @Composable
-fun LoginScreen (){
+fun LoginScreen(navController: NavHostController) {
     val InterFamily = FontFamily(
         Font(R.font.inter, FontWeight.Light),
         )
@@ -110,7 +109,7 @@ fun LoginScreen (){
 
                         Row (modifier=Modifier.fillMaxWidth(.9f),
                             horizontalArrangement = Arrangement.Start){
-                            Text(modifier=Modifier.padding(top=30.dp),
+                            Text(modifier=Modifier.padding(top=20.dp),
                                 text = "Username",
                                 color = Color.White,
                                 fontWeight=FontWeight.Bold,
@@ -159,15 +158,17 @@ fun LoginScreen (){
                                 fontWeight=FontWeight.Bold,
                                 fontSize = 12.sp)
                         }
+
+
                         Divider(Modifier.padding(start=10.dp, end = 10.dp,top=30.dp))
 
 
                         Button(modifier= Modifier
                             .fillMaxWidth(.8f)
-                            .padding(top = 30.dp)
+                            .padding(top = 20.dp)
                             .border(1.dp, Color(0xFFFFFFFF), RoundedCornerShape(6.dp)),
                             shape = RoundedCornerShape(5.dp),
-                            onClick = { /*TODO*/ },
+                            onClick = { navController.navigate("home") },
                             colors=ButtonDefaults.buttonColors(Color(0xFFBF4846))) {
                             Text(
                                 text = "LOGIN",

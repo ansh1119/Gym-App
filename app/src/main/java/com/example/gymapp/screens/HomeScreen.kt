@@ -1,6 +1,9 @@
 package com.example.gymapp.screens
 
+import android.app.Activity
+import android.content.Context
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -28,14 +31,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.gymapp.R
+import com.example.gymapp.components.navbar
 
 
 val InterFamily = FontFamily(
@@ -47,14 +52,15 @@ val PoppinsFamily = FontFamily(
 
 )
 
-@Preview(showBackground = true)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navHostController: NavHostController, context: Context, ob: Payment,activity:Activity) {
+
+    val context = LocalContext.current
     Surface(color = Color(0xFFDAD9D4),
     modifier= Modifier
         .fillMaxSize()) {
         Column (modifier= Modifier
-            .padding(top=20.dp)
+            .padding(top = 20.dp)
             .verticalScroll(rememberScrollState())){
             Image(painter = painterResource(id = R.drawable.logo), contentDescription ="logo",
                 Modifier
@@ -212,17 +218,21 @@ fun HomeScreen() {
                 .fillMaxWidth()
                 .padding(start = 10.dp)
                 .padding(end = 10.dp)
-                .weight(0.05f)) {
+                .weight(0.05f),
+                verticalAlignment = Alignment.CenterVertically) {
 
-                Card(modifier=Modifier
-                    .fillMaxWidth(.4f)
-                    .fillMaxHeight(),
-                    colors = CardDefaults.cardColors(Color(0xFF131313))) {
 
+                Box(modifier = Modifier
+                    .fillMaxWidth(.7f)
+                    .clip(RoundedCornerShape(20.dp))) {
+                    navbar()
                 }
+
+
                 Spacer(modifier = Modifier.weight(0.5f))
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                              ob.startPayment(context, activity)},
                     shape = CircleShape,
                     modifier= Modifier
                         .size(70.dp)
